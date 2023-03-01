@@ -8,6 +8,7 @@ alias n='nvim'
 
 alias ssh-init='eval $(ssh-agent -c) && ssh-add ~/.ssh/id_rsa'
 alias so-fish='source ~/.config/fish/config.fish'
+alias pg_format='/usr/local/lib/node_modules/pg-formatter/dist/pg-formatter/pg_format'
 
 #--------------------------------------------------------------------------------------------------------------
 # CPP - BUILD and TESTING
@@ -15,6 +16,12 @@ alias so-fish='source ~/.config/fish/config.fish'
 
 alias ct='ctest --test-dir build --output-on-failure'
 alias ctest-all='ctest --test-dir build'
+
+function git-is-merged
+    echo "last commit: $(git log --format=%H -n 1 $argv)"
+    # echo "- $argv -"
+    echo "merge-base:  $(git merge-base $argv wbv)"
+end
 
 function remb
     set value $(basename $(pwd))
@@ -25,6 +32,7 @@ function remb
         cd build
     end
 end
+
 
 function cr
     mkdir -p build
@@ -76,12 +84,15 @@ function cr-12
     make -j12 
     cd ..
 end
+
 function cr-11
     mkdir -p build && cd build
     cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_COMPILER=/usr/bin/g++-11 -DCMAKE_C_COMPILER=/usr/bin/gcc-11 ..
     make -j12 
     cd ..
 end
+
+
 
 
 #--------------------------------------------------------------------------------------------------------------
@@ -144,5 +155,7 @@ alias doc-im-rm="sudo docker rmi $1"
 alias doc-con-rm="sudo docker container rm $1"
 
 alias doc-enter-tag="sudo docker run -it $1 /bin/bash"
+
+alias ssh-set="eval \$(ssh-agent -c) && ssh-add ~/.ssh/work_pc_github"
 
 

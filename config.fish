@@ -16,8 +16,16 @@
 export EDITOR="/home/viktor/.local/bin/nvim.appimage"
 export SHELL="/usr/bin/fish"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 source ~/.config/fish/aliases.fish
 source ~/.config/fish/prompt.fish
 source ~/.config/fish/bindings.fish
 source ~/.config/fish/abbrevation.fish
+source ~/.config/fish/functions/fish_prompt.fish
+
+source ~/.config/fish/commands/bigquery.fish
+
+
+# starship init fish | source

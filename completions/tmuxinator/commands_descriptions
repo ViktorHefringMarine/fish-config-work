@@ -1,0 +1,17 @@
+commands:List Commands
+completions:Setup Tmuxinator completions
+copy:Copy an Existing Project
+debug:Show a projects shell commands that get executed
+delete:Delete tmuxinator project
+doctor:Identify configuration problems
+edit:Edit tmuxinator project
+help:Show help
+implode:Remove all configs, aliases and scripts.
+list:List all configured projects
+local:Use local .tmuxinator file
+new:Create a new tmuxinator project
+open:Open tmuxinator session corresponding to project 
+start:Start tmuxinator session corresponding to project 
+stop:Stop tmuxinator session corresponding to project
+version:Show tmuxinator's version number
+

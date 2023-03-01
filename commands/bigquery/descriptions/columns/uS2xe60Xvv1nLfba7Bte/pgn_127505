@@ -1,0 +1,7 @@
+instance: [INTEGER, NULLABLE] - (Instance of the tank)
+fluid_type: [INTEGER, NULLABLE] - (Fluid type)
+level: [FLOAT, NULLABLE] - (Fluid level in percentage)
+capacity: [FLOAT, NULLABLE] - (Tank capacity in liters)
+message_source: [INTEGER, NULLABLE] - (Node ID of the source of the message)
+time: [TIMESTAMP, NULLABLE] - (Timestamp of the message in UNIX microseconds)
+trip_id: [STRING, REQUIRED] - (Trip ID)

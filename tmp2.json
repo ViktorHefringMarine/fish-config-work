@@ -1,0 +1,7 @@
+instance:INTEGER
+fluid_type:INTEGER
+level:FLOAT
+capacity:FLOAT
+message_source:INTEGER
+time:TIMESTAMP
+trip_id:STRING

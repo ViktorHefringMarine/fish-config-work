@@ -20,7 +20,8 @@ SETUVAR _fish_abbr_rb:rm\x20\x2d\x2drd\x20build
 SETUVAR _fish_abbr_t:tmuxinator
 SETUVAR _fisher_jethrokuan_2F_z_files:\x7e/\x2econfig/fish/functions/__z\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_add\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_clean\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_complete\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/z\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejethrokuan/z
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejethrokuan/z\x1esentriz/fish\x2dpipenv
+SETUVAR _fisher_sentriz_2F_fish_2D_pipenv_files:\x7e/\x2econfig/fish/conf\x2ed/pipenv\x2efish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr

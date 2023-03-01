@@ -1,0 +1,4 @@
+Trip_id: [STRING, REQUIRED] - ()
+Vessel_id: [STRING, REQUIRED] - ()
+Captain_id: [STRING, NULLABLE] - ()
+Visible: [BOOLEAN, REQUIRED] - ()
