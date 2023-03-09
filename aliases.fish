@@ -146,7 +146,6 @@ alias source-config='source ~/.config/fish/config.fish && echo "Sourced ~/.confi
 
 alias test-mqtt='mosquitto_sub -p 1884 -t "test-channel"'
 
-alias act='sudo ~/.linuxbrew/bin/act'
 
 
 alias doc-con-ls="sudo docker container ls"
@@ -157,5 +156,9 @@ alias doc-con-rm="sudo docker container rm $1"
 alias doc-enter-tag="sudo docker run -it $1 /bin/bash"
 
 alias ssh-set="eval \$(ssh-agent -c) && ssh-add ~/.ssh/work_pc_github"
+
+# function git-set-account-to-viktorhelgi
+#     
+# end
 
 

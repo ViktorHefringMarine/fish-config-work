@@ -1,6 +1,0 @@
-vessel_id: [STRING, REQUIRED] - ()
-max_acc: [FLOAT, REQUIRED] - ()
-cruising_speed: [FLOAT, NULLABLE] - ()
-length: [FLOAT, REQUIRED] - ()
-planing_speed: [FLOAT, REQUIRED] - ()
-visible: [BOOLEAN, REQUIRED] - ()

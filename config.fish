@@ -26,6 +26,7 @@ source ~/.config/fish/abbrevation.fish
 source ~/.config/fish/functions/fish_prompt.fish
 
 source ~/.config/fish/commands/bigquery.fish
+source ~/.config/fish/commands/gcloud.fish
 
 
 # starship init fish | source

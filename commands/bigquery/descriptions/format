@@ -1,5 +1,0 @@
-pretty: formatted table output
-sparse: simpler table output
-prettyjson: easy-to-read JSON format
-json: maximally compact JSON
-csv: csv format with header
