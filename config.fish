@@ -13,7 +13,8 @@
 
 
 
-export EDITOR="/home/viktor/.local/bin/nvim.appimage"
+# export EDITOR="/home/viktorhg/.local/bin/nvim.appimage"
+export EDITOR="/usr/bin/vim"
 export SHELL="/usr/bin/fish"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"

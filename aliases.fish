@@ -3,7 +3,7 @@
 # NVIM
 #--------------------------------------------------------------------------------------------------------------
 # alias nvim='~/.local/bin/nvim.appimage'
-alias pnvim='~/.local/bin/pipenv run /home/viktor/.local/bin/nvim.appimage'
+alias pnvim='~/.local/bin/pipenv run /home/viktorhg/.local/bin/nvim.appimage'
 alias n='nvim'
 
 alias ssh-init='eval $(ssh-agent -c) && ssh-add ~/.ssh/id_rsa'
@@ -42,7 +42,7 @@ function cr
     # cmake --graphviz=graphviz/wbv.dot -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_COMPILER=g++-9 -DCMAKE_C_COMPILER=gcc-9 ..
 
     cmake --graphviz=graphviz/wbv.dot -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=DEBUG ..
-    # cmake --graphviz=graphviz/wbv.dot -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=DEBUG -DCMAKE_C_COMPILER=/home/viktor/install/gcc-12/bin/gcc -DCMAKE_CXX_COMPILER=/home/viktor/install/gcc-12/bin/g++ ..
+    # cmake --graphviz=graphviz/wbv.dot -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=DEBUG -DCMAKE_C_COMPILER=/home/viktorhg/install/gcc-12/bin/gcc -DCMAKE_CXX_COMPILER=/home/viktorhg/install/gcc-12/bin/g++ ..
 
     # cmake --build . 
     make -j12 
@@ -58,7 +58,7 @@ function cl
     cd build2
 
     mkdir -p graphviz
-    cmake --graphviz=graphviz/wbv.dot -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=DEBUG -DCMAKE_CXX_COMPILER=g++-9 -DCMAKE_C_COMPILER=gcc-9 -DVCPKG_PACKAGES_DIR=/home/viktor/repos/vcpkg/packages/matplotplusplus_x64-linux/ ..
+    cmake --graphviz=graphviz/wbv.dot -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=DEBUG -DCMAKE_CXX_COMPILER=g++-9 -DCMAKE_C_COMPILER=gcc-9 -DVCPKG_PACKAGES_DIR=/home/viktorhg/repos/vcpkg/packages/matplotplusplus_x64-linux/ ..
 
     make -j12 
 
@@ -67,20 +67,20 @@ end
 
 function crl-12
     mkdir -p build && cd build
-    cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_COMPILER=/home/viktor/.linuxbrew/bin/g++-12 -DCMAKE_C_COMPILER=/home/viktor/.linuxbrew/bin/gcc-12  -DVCPKG_PACKAGES_DIR=/home/viktor/repos/vcpkg/packages/matplotplusplus_x64-linux/ -DCMAKE_TOOLCHAIN_FILE=/home/viktor/repos/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+    cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_COMPILER=/home/viktorhg/.linuxbrew/bin/g++-12 -DCMAKE_C_COMPILER=/home/viktorhg/.linuxbrew/bin/gcc-12  -DVCPKG_PACKAGES_DIR=/home/viktorhg/repos/vcpkg/packages/matplotplusplus_x64-linux/ -DCMAKE_TOOLCHAIN_FILE=/home/viktorhg/repos/vcpkg/scripts/buildsystems/vcpkg.cmake ..
     make -j12 
     cd ..
 end
 function crl-11
     mkdir -p build && cd build
-    cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_COMPILER=/usr/bin/g++-11 -DCMAKE_C_COMPILER=/usr/bin/gcc-11 -DVCPKG_PACKAGES_DIR=/home/viktor/repos/vcpkg/packages/matplotplusplus_x64-linux/ -DCMAKE_TOOLCHAIN_FILE=/home/viktor/repos/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+    cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_COMPILER=/usr/bin/g++-11 -DCMAKE_C_COMPILER=/usr/bin/gcc-11 -DVCPKG_PACKAGES_DIR=/home/viktorhg/repos/vcpkg/packages/matplotplusplus_x64-linux/ -DCMAKE_TOOLCHAIN_FILE=/home/viktorhg/repos/vcpkg/scripts/buildsystems/vcpkg.cmake ..
     make -j12 
     cd ..
 end
 
 function cr-12
     mkdir -p build && cd build
-    cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_COMPILER=/home/viktor/.linuxbrew/bin/g++-12 -DCMAKE_C_COMPILER=/home/viktor/.linuxbrew/bin/gcc-12 ..
+    cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_COMPILER=/home/viktorhg/.linuxbrew/bin/g++-12 -DCMAKE_C_COMPILER=/home/viktorhg/.linuxbrew/bin/gcc-12 ..
     make -j12 
     cd ..
 end
