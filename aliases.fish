@@ -1,25 +1,56 @@
+# Exa
+alias ei='exa --icons -1 --git -l --no-permissions --no-user --header --sort type' 
+alias eo='exa --icons -1 --git -l --no-filesize --no-permissions --no-user --no-time --header --sort type' 
+alias ea='exa --icons -1 --git -l --no-filesize --no-permissions --no-user --no-time --header --sort type --all' 
+alias eb='exa --icons --git --sort type --all' 
+alias et='exa --icons -1 --git -l --no-filesize --no-permissions --no-user --no-time --tree --ignore-glob "build|venv|*cache*"' 
+alias es='exa -l --colour-scale --sort size   --no-permissions --no-user --header --group-directories-first --no-time  --icons'
 
 #--------------------------------------------------------------------------------------------------------------
-# NVIM
+# Random
 #--------------------------------------------------------------------------------------------------------------
-# alias nvim='~/.local/bin/nvim.appimage'
-alias pnvim='~/.local/bin/pipenv run /home/viktor/.local/bin/nvim.appimage'
-alias n='nvim'
-
+function ls-ext 
+    find . -type f | awk  -e '$1 ~ /\.\w*$/ {print }' | awk -F'.' '{print $NF}' | sort| uniq -c | sort -g
+end
+alias fd='fdfind'
+alias zellij='/home/viktor/install/zellij'
+alias pg_format='/usr/local/lib/node_modules/pg-formatter/dist/pg-formatter/pg_format'
 alias ssh-init='eval $(ssh-agent -c) && ssh-add ~/.ssh/id_rsa'
 alias so-fish='source ~/.config/fish/config.fish'
-alias pg_format='/usr/local/lib/node_modules/pg-formatter/dist/pg-formatter/pg_format'
+alias pnvim='home/viktor/.local/bin/pipenv run /home/viktor/.local/bin/nvim.appimage'
+alias n='nvim'
+alias vcpkg='~/repos/vcpkg/vcpkg'
+
+alias list-vessels='source "/home/viktor/.local/share/virtualenvs/functions-qmhoTpyU/bin/activate.fish"; python3 /home/viktor/hm/HefringCLI/list_vessels/main.py'
+
+
+function jupyter_pair
+    python3 -m jupyter_ascending.scripts.make_pair --base "$argv"
+end
+function jupyter_sync
+    python3 -m jupyter_ascending.requests.sync --filename "$argv.sync.py"
+end
+
+function list-features
+    for i in $(string split \r\n $(cargo whatfeatures -c never .))
+        if string match -q "*  └─*" "$i"; or string match -q "*├─*" "$i"; and not string match -q "*no default features*" "$i"
+            echo $i | string replace "└─" "" | string replace "  ├─" "" |  string replace -a " " ""
+        end
+    end
+end
 
 #--------------------------------------------------------------------------------------------------------------
 # CPP - BUILD and TESTING
 #--------------------------------------------------------------------------------------------------------------
-
 alias ct='ctest --test-dir build --output-on-failure'
 alias ctest-all='ctest --test-dir build'
+alias projectionist='cp ~/.config/.projections.json .'
+alias cb='cmake -B build -S .  -DCMAKE_TOOLCHAIN_FILE=/home/viktor/repos/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
+alias m='make -C build'
+
 
 function git-is-merged
     echo "last commit: $(git log --format=%H -n 1 $argv)"
-    # echo "- $argv -"
     echo "merge-base:  $(git merge-base $argv wbv)"
 end
 
@@ -37,68 +68,18 @@ end
 function cr
     mkdir -p build
     cd build
-
     mkdir -p graphviz
-    # cmake --graphviz=graphviz/wbv.dot -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_COMPILER=g++-9 -DCMAKE_C_COMPILER=gcc-9 ..
-
     cmake --graphviz=graphviz/wbv.dot -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=DEBUG ..
-    # cmake --graphviz=graphviz/wbv.dot -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=DEBUG -DCMAKE_C_COMPILER=/home/viktor/install/gcc-12/bin/gcc -DCMAKE_CXX_COMPILER=/home/viktor/install/gcc-12/bin/g++ ..
-
-    # cmake --build . 
     make -j12 
-
     cd graphviz
     dot -Tpng -o wbv.png wbv.dot
 
     cd ../..
 end
 
-function cl
-    mkdir -p build2
-    cd build2
-
-    mkdir -p graphviz
-    cmake --graphviz=graphviz/wbv.dot -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=DEBUG -DCMAKE_CXX_COMPILER=g++-9 -DCMAKE_C_COMPILER=gcc-9 -DVCPKG_PACKAGES_DIR=/home/viktor/repos/vcpkg/packages/matplotplusplus_x64-linux/ ..
-
-    make -j12 
-
-    cd ..
-end
-
-function crl-12
-    mkdir -p build && cd build
-    cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_COMPILER=/home/viktor/.linuxbrew/bin/g++-12 -DCMAKE_C_COMPILER=/home/viktor/.linuxbrew/bin/gcc-12  -DVCPKG_PACKAGES_DIR=/home/viktor/repos/vcpkg/packages/matplotplusplus_x64-linux/ -DCMAKE_TOOLCHAIN_FILE=/home/viktor/repos/vcpkg/scripts/buildsystems/vcpkg.cmake ..
-    make -j12 
-    cd ..
-end
-function crl-11
-    mkdir -p build && cd build
-    cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_COMPILER=/usr/bin/g++-11 -DCMAKE_C_COMPILER=/usr/bin/gcc-11 -DVCPKG_PACKAGES_DIR=/home/viktor/repos/vcpkg/packages/matplotplusplus_x64-linux/ -DCMAKE_TOOLCHAIN_FILE=/home/viktor/repos/vcpkg/scripts/buildsystems/vcpkg.cmake ..
-    make -j12 
-    cd ..
-end
-
-function cr-12
-    mkdir -p build && cd build
-    cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_COMPILER=/home/viktor/.linuxbrew/bin/g++-12 -DCMAKE_C_COMPILER=/home/viktor/.linuxbrew/bin/gcc-12 ..
-    make -j12 
-    cd ..
-end
-
-function cr-11
-    mkdir -p build && cd build
-    cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_COMPILER=/usr/bin/g++-11 -DCMAKE_C_COMPILER=/usr/bin/gcc-11 ..
-    make -j12 
-    cd ..
-end
-
-
-
-
 #--------------------------------------------------------------------------------------------------------------
 # AS-TREE
 #--------------------------------------------------------------------------------------------------------------
-
 alias tree='fdfind | as-tree'
 alias cpp-tree='fdfind -e cpp -e hpp | as-tree'
 alias build-tree='fdfind -e so -e lib -e a -e exe --no-ignore | as-tree'
@@ -108,21 +89,7 @@ alias tree2='fdfind -e $1 -e $2 | as-tree'
 
 function dtree
     fdfind -t d | as-tree
-    # if [ "$1" == "" ]; then
-    #     fdfind -t d | as-tree
-    # else
-    #     fdfind -t d -d $1| as-tree
-    # fi
 end
-
-#--------------------------------------------------------------------------------------------------------------
-# DOCKER
-#--------------------------------------------------------------------------------------------------------------
-
-# function doc-build-ft
-# {
-#     sudo docker build --force-rm -f $1 -t $2 .
-# }
 
 #--------------------------------------------------------------------------------------------------------------
 # git

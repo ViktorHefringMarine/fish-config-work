@@ -1,0 +1,1 @@
+/home/viktor/repos/vcpkg/scripts/vcpkg_completion.fish
