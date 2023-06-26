@@ -9,12 +9,10 @@ alias es='exa -l --colour-scale --sort size   --no-permissions --no-user --heade
 #--------------------------------------------------------------------------------------------------------------
 # Random
 #--------------------------------------------------------------------------------------------------------------
-function ls-ext 
-    find . -type f | awk  -e '$1 ~ /\.\w*$/ {print }' | awk -F'.' '{print $NF}' | sort| uniq -c | sort -g
-end
-alias fd='fdfind'
-alias zellij='/home/viktor/install/zellij'
-alias pg_format='/usr/local/lib/node_modules/pg-formatter/dist/pg-formatter/pg_format'
+# alias nvim='~/.local/bin/nvim.appimage'
+alias pnvim='~/.local/bin/pipenv run /home/viktorhg/.local/bin/nvim.appimage'
+alias n='nvim'
+
 alias ssh-init='eval $(ssh-agent -c) && ssh-add ~/.ssh/id_rsa'
 alias so-fish='source ~/.config/fish/config.fish'
 alias pnvim='home/viktor/.local/bin/pipenv run /home/viktor/.local/bin/nvim.appimage'
@@ -70,12 +68,57 @@ function cr
     cd build
     mkdir -p graphviz
     cmake --graphviz=graphviz/wbv.dot -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=DEBUG ..
+    # cmake --graphviz=graphviz/wbv.dot -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=DEBUG -DCMAKE_C_COMPILER=/home/viktorhg/install/gcc-12/bin/gcc -DCMAKE_CXX_COMPILER=/home/viktorhg/install/gcc-12/bin/g++ ..
+
+    # cmake --build . 
     make -j12 
     cd graphviz
     dot -Tpng -o wbv.png wbv.dot
 
     cd ../..
 end
+
+function cl
+    mkdir -p build2
+    cd build2
+
+    mkdir -p graphviz
+    cmake --graphviz=graphviz/wbv.dot -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=DEBUG -DCMAKE_CXX_COMPILER=g++-9 -DCMAKE_C_COMPILER=gcc-9 -DVCPKG_PACKAGES_DIR=/home/viktorhg/repos/vcpkg/packages/matplotplusplus_x64-linux/ ..
+
+    make -j12 
+
+    cd ..
+end
+
+function crl-12
+    mkdir -p build && cd build
+    cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_COMPILER=/home/viktorhg/.linuxbrew/bin/g++-12 -DCMAKE_C_COMPILER=/home/viktorhg/.linuxbrew/bin/gcc-12  -DVCPKG_PACKAGES_DIR=/home/viktorhg/repos/vcpkg/packages/matplotplusplus_x64-linux/ -DCMAKE_TOOLCHAIN_FILE=/home/viktorhg/repos/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+    make -j12 
+    cd ..
+end
+function crl-11
+    mkdir -p build && cd build
+    cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_COMPILER=/usr/bin/g++-11 -DCMAKE_C_COMPILER=/usr/bin/gcc-11 -DVCPKG_PACKAGES_DIR=/home/viktorhg/repos/vcpkg/packages/matplotplusplus_x64-linux/ -DCMAKE_TOOLCHAIN_FILE=/home/viktorhg/repos/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+    make -j12 
+    cd ..
+end
+
+function cr-12
+    mkdir -p build && cd build
+    cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_COMPILER=/home/viktorhg/.linuxbrew/bin/g++-12 -DCMAKE_C_COMPILER=/home/viktorhg/.linuxbrew/bin/gcc-12 ..
+    make -j12 
+    cd ..
+end
+
+function cr-11
+    mkdir -p build && cd build
+    cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_COMPILER=/usr/bin/g++-11 -DCMAKE_C_COMPILER=/usr/bin/gcc-11 ..
+    make -j12 
+    cd ..
+end
+
+
+
 
 #--------------------------------------------------------------------------------------------------------------
 # AS-TREE

@@ -13,8 +13,8 @@
 
 
 
-# export EDITOR="/home/viktor/.local/bin/nvim.appimage"
-export EDITOR="/usr/local/bin/nvim"
+# export EDITOR="/home/viktorhg/.local/bin/nvim.appimage"
+export EDITOR="/usr/bin/vim"
 export SHELL="/usr/bin/fish"
 export CPLUS_INCLUDE_PATH="/usr/include/gdal"
 export C_INCLUDE_PATH="/usr/include/gdal"
