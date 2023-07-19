@@ -32,6 +32,3 @@ source ~/.config/fish/commands/gcloud.fish
 
 
 # starship init fish | source
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/viktorhg/install/google-cloud-sdk/path.fish.inc' ]; . '/home/viktorhg/install/google-cloud-sdk/path.fish.inc'; end

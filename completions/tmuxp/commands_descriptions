@@ -1,0 +1,8 @@
+load:load tmuxp workspaces
+shell:launch python shell for tmux server, session, window and pane
+import:import workspaces from teamocil and tmuxinator.
+convert:convert workspace files between yaml and json.
+debug-info:print out all diagnostic info
+ls:list workspaces in tmuxp directory
+edit:run $EDITOR on workspace file
+freeze:freeze a live tmux session to a tmuxp workspace file

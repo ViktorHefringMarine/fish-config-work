@@ -1,1 +1,1 @@
-/home/viktor/repos/vcpkg/scripts/vcpkg_completion.fish
+/home/viktorhg/git-repos/vcpkg/scripts/vcpkg_completion.fish
