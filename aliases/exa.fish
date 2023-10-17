@@ -2,7 +2,7 @@
 # Exa
 #--------------------------------------------------------------------------------------------------------------
 
-alias e='exa --icons -j'
+alias e='exa --icons'
 
 #==============================================================================================================
 # General
@@ -24,7 +24,7 @@ function eat --wraps exa --description 'exa sort-type'
 end
 
 function exa-tree --wraps exa --description 'exa tree'
-    exa-git -1 -l --no-filesize --no-permissions --no-user --no-time --tree
+    exa-git -1 -l --no-filesize --no-permissions --no-user --no-time --tree $argv
 end
 
 abbr --add eo   "exa-long"

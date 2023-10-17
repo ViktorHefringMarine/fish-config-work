@@ -1,0 +1,13 @@
+{
+  "src/*.py": {
+    "alternate": "tests/test_{basename}.py",
+    "type": "source"
+  },
+  "tests/**/test_*.py": {
+    "alternate": "src/{basename}.py",
+    "type": "test"
+  },
+  "*.py": {"dispatch": "python {file}"}
+}
+
+

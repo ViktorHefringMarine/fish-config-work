@@ -1,0 +1,12 @@
+{
+  "lib/data_processing/*.py": {
+    "alternate": "lib/tests/test_{basename}.py",
+    "type": "source"
+  },
+  "lib/tests/**/test_*.py": {
+    "alternate": "lib/data_processing/{basename}.py",
+    "type": "test"
+  },
+  "*.py": {"dispatch": "python {file}"}
+}
+

@@ -1,9 +1,9 @@
-function git-c-n
-    git log --reverse --pretty=%H refactoring+benchmarks | grep -A 1 $(git rev-parse HEAD) | tail -n1 | xargs git checkout -q
+function gc-up --description "checkout the newer head (assuming you are using the dev branch)"
+    git log --reverse --pretty=%H dev | grep -A 1 $(git rev-parse HEAD) | tail -n1 | xargs git checkout -q
     git log -1
 end
 
-function git-c-p
+function gc-down --description "checkout the older head"
     git checkout -q HEAD^1
     git log -1
 end
@@ -11,7 +11,7 @@ end
 function git-is-merged --wraps git
     echo "last commit: $(git log --format=%H -n 1 $argv)"
     # echo "- $argv -"
-    echo "merge-base:  $(git merge-base $argv wbv)"
+    echo "merge-base:  $(git merge-base $argv dev)"
 end
 
 function git-log-branches --wraps git

@@ -1,3 +1,5 @@
+set FD_COMMAND "fd"
+
 function __fish__list_options
     string match -v -r '^\s*#' <$argv[1] | while read -l line
         string split -f 1,2 : -- $line | string join \t | string replace -r ',.*' ''
@@ -22,7 +24,7 @@ function echo_files_in_dirs
         ~/hm/research/queries \
         # ~/hm/research/queries
 
-    set out (fdfind --full-path . $XX -e sql)
+    set out ($FD_COMMAND --full-path . $XX -e sql)
     echo $out
 end
 

@@ -10,17 +10,7 @@
 #     tmux a
 # end
 
-
-
-
-# export EDITOR="/home/viktorhg/.local/bin/nvim.appimage"
-export EDITOR="/usr/local/bin/nvim"
-export SHELL="/usr/bin/fish"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/go/bin:$PATH"
-export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
-
+source ~/.config/fish/export.fish
 source ~/.config/fish/aliases.fish
 source ~/.config/fish/prompt.fish
 source ~/.config/fish/bindings.fish
@@ -29,9 +19,12 @@ source ~/.config/fish/functions/fish_prompt.fish
 
 source ~/.config/fish/commands/bigquery.fish
 source ~/.config/fish/commands/gcloud.fish
+source ~/.config/fish/commands/hm.fish
+source ~/.config/fish/commands/loglevel.fish
+source ~/.config/fish/commands/projectionist.fish
 
-
-# starship init fish | source
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/viktorhg/install/google-cloud-sdk/path.fish.inc' ]; . '/home/viktorhg/install/google-cloud-sdk/path.fish.inc'; end
+if [ -f '/home/viktorhg/install/google-cloud-sdk/path.fish.inc' ]
+    source '/home/viktorhg/install/google-cloud-sdk/path.fish.inc'
+end

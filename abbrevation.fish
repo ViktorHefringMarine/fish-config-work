@@ -8,6 +8,7 @@ abbr --add n   "nvim"
 abbr --add b   "bigquery"
 abbr --add f   "fish"
 abbr --add ks  "keyboard-setup"
+abbr --add rl  "loglevel"
 
 abbr --add bq-schema "bq show --schema --project_id=mk2-prod sbRDOuWobz16XG953Vms.data | jq"
 

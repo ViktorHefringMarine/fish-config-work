@@ -1,0 +1,27 @@
+{
+    "src/*.cpp": { 
+        "alternate": "tests/{dirname}/test_{basename}.cpp",
+        "type": "source"
+    },
+    "src/*.hpp": { 
+        "alternate": "tests/{dirname}/test_{basename}.cpp",
+        "type": "source"
+    },
+    "include/*.hpp": { 
+        "alternate": "tests/{dirname}/test_{basename}.cpp",
+        "type": "source"
+    },
+    "include/*.cpp": { 
+        "alternate": "tests/{dirname}/test_{basename}.cpp",
+        "type": "source"
+    },
+    "include/*.h": { 
+        "alternate": "tests/{dirname}/test_{basename}.cpp",
+        "type": "source"
+    },
+    "tests/**/test_*.cpp": {
+        "alternate": ["src/{}.cpp", "include/{}.cpp", "include/{}.hpp", "src/{}.hpp"],
+        "type": "test"
+    }
+}
+
