@@ -9,6 +9,7 @@ complete -x -c hm \
         create-proxy \
         build \
         deploy \
+        list \
         activate-prod-env \
         activate-test-env \
         help" 
@@ -37,6 +38,9 @@ function __hm_help
     echo ""
     echo "    deploy"
     echo "          Deploy the gcloud container with gcloud run"
+    echo ""
+    echo "    list"
+    echo "          List all images in the route-guidance/api artifact repo"
 end
 
 function hm
@@ -89,25 +93,63 @@ function hm
             --machine-type="E2_HIGHCPU_32"
 
     else if test $sub_command = "deploy"
-        echo "Running "
-        echo "gcloud run deploy"
-        echo "    route-guidance "
-        echo "    --region=\"europe-west1\""
-        echo "    --image=\"europe-west1-docker.pkg.dev/mk2-test/route-guidance/api:latest\""
-        echo "    --command=\"http-server\""
-        echo "    --memory=32G"
-        echo "    --cpu=8"
-        echo "    --max-instances=2"
 
-        gcloud run deploy route-guidance \
-            --region="europe-west1" \
-            --image="europe-west1-docker.pkg.dev/mk2-test/route-guidance/api:latest" \
-            --command="http-server" \
-            --allow-unauthenticated \
-            --memory=32G \
-            --cpu=8 \
-            --timeout=20m \
-            --max-instances=2
+        if set -q argv[2]
+            set -f api_version $argv[2] 
+
+            echo "Running "
+            echo "gcloud run deploy"
+            echo "    route-guidance "
+            echo "    --region=\"europe-west1\""
+            echo "    --image=\"europe-west1-docker.pkg.dev/mk2-test/route-guidance/api:$api_version\""
+            echo "    --command=\"http-server\""
+            echo "    --allow-unauthenticated"
+            echo "    --memory=32G"
+            echo "    --cpu=8"
+            echo "    --timeout=45m"
+            echo "    --max-instances=2"
+
+            gcloud run deploy route-guidance \
+                --region="europe-west1" \
+                --image="europe-west1-docker.pkg.dev/mk2-test/route-guidance/api:$api_version" \
+                --command="http-server" \
+                --allow-unauthenticated \
+                --memory=32G \
+                --cpu=8 \
+                --timeout=45m \
+                --max-instances=2
+
+
+        else 
+
+            echo "Running "
+            echo "gcloud run deploy"
+            echo "    route-guidance "
+            echo "    --region=\"europe-west1\""
+            echo "    --image=\"europe-west1-docker.pkg.dev/mk2-test/route-guidance/api:latest\""
+            echo "    --command=\"http-server\""
+            echo "    --allow-unauthenticated"
+            echo "    --memory=32G"
+            echo "    --cpu=8"
+            echo "    --timeout=45m"
+            echo "    --max-instances=2"
+
+            gcloud run deploy route-guidance \
+                --region="europe-west1" \
+                --image="europe-west1-docker.pkg.dev/mk2-test/route-guidance/api:latest" \
+                --command="http-server" \
+                --allow-unauthenticated \
+                --memory=32G \
+                --cpu=8 \
+                --timeout=45m \
+                --max-instances=2
+
+        end
+
+    else if test $sub_command = "list"
+        gcloud artifacts docker tags list \
+            europe-west1-docker.pkg.dev/mk2-test/route-guidance/api
+
     else if test $sub_command = "activate-prod-env"
         # export GOOGLE_APPLICATION_CREDENTIALS="/home/viktorhg/hm/.local/mk2-prod-firebase-adminsdk-zzeux-8db3867c4c.json"
         export PROJECT_ID="mk2-prod"

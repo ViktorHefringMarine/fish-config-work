@@ -46,5 +46,5 @@ function loglevel
     set -f loglevel $argv[1] 
 
     echo "RUST_LOG set as '$loglevel'"
-    export RUST_LOG=$loglevel
+    export RUST_LOG="route_guidance=$loglevel,http_server=$loglevel"
 end

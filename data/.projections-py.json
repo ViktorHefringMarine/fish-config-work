@@ -1,13 +1,11 @@
 {
   "src/*.py": {
-    "alternate": "tests/test_{basename}.py",
+    "alternate": "test/{dirname}/test_{basename}.py",
     "type": "source"
   },
-  "tests/**/test_*.py": {
-    "alternate": "src/{basename}.py",
+  "test/**/test_*.py": {
+    "alternate": "src/{}.py",
     "type": "test"
   },
   "*.py": {"dispatch": "python {file}"}
 }
-
-

@@ -12,6 +12,9 @@ abbr --add gd   "git diff"
 abbr --add gs   "git status"
 abbr --add gl   "git log"
 
+abbr --add ds   "git diff --staged"
+
+
 #------------------------------------------------------------------
 # One Liners
 #------------------------------------------------------------------

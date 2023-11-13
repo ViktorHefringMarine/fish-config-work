@@ -37,3 +37,14 @@ export GITIN_DISABLECOLOR=false
 # NeoVim
 #----------------------------------#
 export NVIM_PYTHON_LOG_FILE=/home/viktorhg/.local/state/nvim/python.log
+
+
+#----------------------------------#
+# RUST
+#----------------------------------#
+export RUST_LOG="route_guidance=Info,http_server=Info"
+
+#----------------------------------#
+# EMBEDDED
+#----------------------------------#
+export EMBEDDED_DISABLE_TIME_CONSUMING_TESTS=TRUE
