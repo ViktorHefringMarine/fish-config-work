@@ -48,3 +48,15 @@ export RUST_LOG="route_guidance=Info,http_server=Info"
 # EMBEDDED
 #----------------------------------#
 export EMBEDDED_DISABLE_TIME_CONSUMING_TESTS=TRUE
+
+
+#----------------------------------#
+# Bazel
+#----------------------------------#
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
+
+#----------------------------------#
+# OPENSSL & CRYPTO
+#----------------------------------#
+export OPENSSL_ROOT_DIR=/usr/include/openssl-1.0
+export OPENSSL_CRYPTO_LIBRARY=/usr/lib/openssl-1.0/

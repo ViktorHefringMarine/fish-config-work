@@ -7,7 +7,6 @@ SETUVAR Z_DATA_DIR:/home/viktorhg/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:\x5e/home/viktorhg\x24
 SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_bm:cmake\x20\x2dDCMAKE_EXPORT_COMPILE_COMMANDS\x3dON\x20\x2e\x2e
-SETUVAR _fish_abbr_cm:cmake\x20\x2dDCMAKE_EXPORT_COMPILE_COMMANDS\x3dON\x20\x2e\x2e
 SETUVAR _fish_abbr_ga:git\x20add
 SETUVAR _fish_abbr_gb:git\x20checkout
 SETUVAR _fish_abbr_gc:git\x20commit

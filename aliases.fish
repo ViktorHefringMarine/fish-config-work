@@ -26,3 +26,21 @@ alias ports_info='netstat -tunlp'
 alias test-mqtt='mosquitto_sub -p 1884 -t "test-channel"'
 
 alias vcpkg="/home/viktorhg/git-repos/vcpkg/vcpkg"
+
+function __gpush_dfi_help
+    echo "HELLO the command needs two arguments. first is the name of the program. second is the dockerfile"
+end
+
+function gpush_dfi
+    if not set -q argv[2]
+        __gpush_dfi_help
+        return
+    end
+    echo $argv[1]
+    echo $argv[2]
+
+    # ls build/$argv[1]
+
+	docker buildx build --platform linux/x86_64 -t eu.gcr.io/mk2-test/dfi_$argv[1] --output type=docker -f $argv[2] . 
+    docker push eu.gcr.io/mk2-test/dfi_$argv[1]
+end

@@ -22,6 +22,7 @@ source ~/.config/fish/commands/gcloud.fish
 source ~/.config/fish/commands/hm.fish
 source ~/.config/fish/commands/loglevel.fish
 source ~/.config/fish/commands/projectionist.fish
+source ~/.config/fish/commands/cm.fish
 
 
 # The next line updates PATH for the Google Cloud SDK.
