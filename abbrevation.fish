@@ -3,6 +3,7 @@ source ~/.config/fish/abbrevations/ssh.fish
 source ~/.config/fish/abbrevations/tmux.fish
 source ~/.config/fish/abbrevations/cpp.fish
 source ~/.config/fish/abbrevations/gcloud.fish
+source ~/.config/fish/abbrevations/hefring.fish
 
 abbr --add n   "nvim"
 abbr --add b   "bigquery"

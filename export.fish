@@ -48,6 +48,7 @@ export RUST_LOG="route_guidance=Info,http_server=Info"
 # EMBEDDED
 #----------------------------------#
 export EMBEDDED_DISABLE_TIME_CONSUMING_TESTS=TRUE
+export USE_LOCAL_MQTT=TRUE
 
 
 #----------------------------------#
@@ -60,3 +61,21 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
 #----------------------------------#
 export OPENSSL_ROOT_DIR=/usr/include/openssl-1.0
 export OPENSSL_CRYPTO_LIBRARY=/usr/lib/openssl-1.0/
+
+
+
+export ENGINE_SPEED=2100
+export ENGINE_FUEL_PRESSURE=20000
+export ENGINE_COOLANT_TEMPERATURE=298.55
+export ENGINE_OIL_TEMPERATURE="298.6"
+export ENGINE_TORQUE=75
+export FUEL_RATE="10.5"
+export USED_THRESHOLD_RULES="UN9YJEnCggoY8klkeFRA"
+
+
+            # ENGINE_FUEL_PRESSURE: '20000'
+            # ENGINE_COOLANT_TEMPERATURE: '298.55'
+            # ENGINE_OIL_TEMPERATURE: '298.6'
+            # ENGINE_TORQUE: '75'
+            # FUEL_RATE: '10.5'
+            # USED_THRESHOLD_RULES: 'UN9YJEnCggoY8klkeFRA'

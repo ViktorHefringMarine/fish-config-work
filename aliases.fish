@@ -6,6 +6,7 @@ source ~/.config/fish/aliases/tree.fish
 source ~/.config/fish/aliases/git.fish
 source ~/.config/fish/aliases/docker.fish
 source ~/.config/fish/aliases/rust.fish
+source ~/.config/fish/aliases/mosquitto.fish
 
 # nvim
 alias n='nvim'
@@ -44,3 +45,26 @@ function gpush_dfi
 	docker buildx build --platform linux/x86_64 -t eu.gcr.io/mk2-test/dfi_$argv[1] --output type=docker -f $argv[2] . 
     docker push eu.gcr.io/mk2-test/dfi_$argv[1]
 end
+
+# function __delete-all-nvim-colorschemes
+#    # sudo mv /usr/local/share/nvim/runtime/colors/default.vim       ~/.nvim-colorschemes/default.vim        
+#    sudo mv /usr/local/share/nvim/runtime/colors/delek.vim         ~/.nvim-colorschemes/delek.vim          
+#    sudo mv /usr/local/share/nvim/runtime/colors/desert.vim        ~/.nvim-colorschemes/desert.vim         
+#    sudo mv /usr/local/share/nvim/runtime/colors/elflord.vim       ~/.nvim-colorschemes/elflord.vim        
+#    sudo mv /usr/local/share/nvim/runtime/colors/evening.vim       ~/.nvim-colorschemes/evening.vim        
+#    # sudo mv /usr/local/share/nvim/runtime/colors/habamax.vim       ~/.nvim-colorschemes/habamax.vim        
+#    sudo mv /usr/local/share/nvim/runtime/colors/industry.vim      ~/.nvim-colorschemes/industry.vim       
+#    sudo mv /usr/local/share/nvim/runtime/colors/koehler.vim       ~/.nvim-colorschemes/koehler.vim        
+#    sudo mv /usr/local/share/nvim/runtime/colors/lunaperche.vim    ~/.nvim-colorschemes/lunaperche.vim     
+#    sudo mv /usr/local/share/nvim/runtime/colors/morning.vim       ~/.nvim-colorschemes/morning.vim        
+#    sudo mv /usr/local/share/nvim/runtime/colors/murphy.vim        ~/.nvim-colorschemes/murphy.vim         
+#    sudo mv /usr/local/share/nvim/runtime/colors/pablo.vim         ~/.nvim-colorschemes/pablo.vim          
+#    sudo mv /usr/local/share/nvim/runtime/colors/peachpuff.vim     ~/.nvim-colorschemes/peachpuff.vim      
+#    sudo mv /usr/local/share/nvim/runtime/colors/quiet.vim         ~/.nvim-colorschemes/quiet.vim          
+#    # sudo mv /usr/local/share/nvim/runtime/colors/README.txt        ~/.nvim-colorschemes/README.txt         
+#    sudo mv /usr/local/share/nvim/runtime/colors/ron.vim           ~/.nvim-colorschemes/ron.vim            
+#    sudo mv /usr/local/share/nvim/runtime/colors/shine.vim         ~/.nvim-colorschemes/shine.vim          
+#    sudo mv /usr/local/share/nvim/runtime/colors/slate.vim         ~/.nvim-colorschemes/slate.vim          
+#    sudo mv /usr/local/share/nvim/runtime/colors/torte.vim         ~/.nvim-colorschemes/torte.vim          
+#    sudo mv /usr/local/share/nvim/runtime/colors/zellner.vim       ~/.nvim-colorschemes/zellner.vim        
+# end
