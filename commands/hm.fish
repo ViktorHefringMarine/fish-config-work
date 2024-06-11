@@ -107,7 +107,7 @@ function hm
             --machine-type="E2_HIGHCPU_32"
 
     else if test $sub_command = "ssh-device"
-        ssh -oHostKeyAlgorithms=+ssh-rsa root@10.20.10.204 -t 'command; /bin/bash'
+        ssh -oHostKeyAlgorithms=+ssh-rsa root@192.168.68.110 -t 'command; /bin/bash'
 
     else if test $sub_command = "deploy"
 

@@ -11,6 +11,8 @@ source ~/.config/fish/aliases/mosquitto.fish
 # nvim
 alias n='nvim'
 
+alias zed="~/git-repos/zed/target/release/zed"
+
 # setxkbmap
 alias keyboard-setup="setxkbmap A-real-prog-dvorak -option altwin:swap_lalt_lwin"
 
@@ -44,6 +46,10 @@ function gpush_dfi
 
 	docker buildx build --platform linux/x86_64 -t eu.gcr.io/mk2-test/dfi_$argv[1] --output type=docker -f $argv[2] . 
     docker push eu.gcr.io/mk2-test/dfi_$argv[1]
+end
+
+function remmina-hefring-server 
+    remmina -c "vnc://192.168.68.111?VncPassword=$(pass show remmina/192.168.68.111)"
 end
 
 # function __delete-all-nvim-colorschemes
