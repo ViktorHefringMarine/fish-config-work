@@ -68,5 +68,6 @@ function pubf
     echo "mosquitto_pub"
     echo " - topic: $argv[1]"
     echo " - file: $argv[2]"
-    mosquitto_pub -h "192.168.68.110" -t $argv[1] -m "$(cat $argv[2])"
+    # mosquitto_pub -h "192.168.68.110" -t $argv[1] -m "$(cat $argv[2])"
+    mosquitto_pub -h "0.0.0.0" -t $argv[1] -m "$(cat $argv[2])"
 end

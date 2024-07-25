@@ -8,21 +8,11 @@ abbr --add ga   "git add"
 abbr --add gb   "git branch"
 abbr --add gc   "git checkout"
 abbr --add gC   "git commit"
-abbr --add gd   "git diff"
 abbr --add gs   "git status"
-abbr --add gl   "git log"
+abbr --add gl   "git log -n 1"
 
-abbr --add ds   "git diff --staged"
-
-
-#------------------------------------------------------------------
-# One Liners
-#------------------------------------------------------------------
-abbr --add A    "git add"
-abbr --add C    "git commit"
-abbr --add S    "git status"
-abbr --add d    "git diff"
-abbr --add L    "git log -n"
+abbr --add gd   "git diff"
+abbr --add gds   "git diff --staged"
 
 #------------------------------------------------------------------
 # Commit 

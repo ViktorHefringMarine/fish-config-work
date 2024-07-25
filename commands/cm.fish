@@ -64,8 +64,8 @@ function cm
             -DCMAKE_BUILD_TYPE=TESTING \
             -DDEBUG_FRONTPUB=ON \
             -DDEBUG_ALERTS=ON \
-            -DVERBOSE_DEBUG_ALERTS=ON \
-            -DUSE_LOCAL_MQTT=ON
+            -DVERBOSE_DEBUG_ALERTS=ON
+            # -DUSE_LOCAL_MQTT=ON
     else if test $opt = "release"
         rm compile_commands.json
         cmake -B build -S . \

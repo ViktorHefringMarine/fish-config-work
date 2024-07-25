@@ -48,7 +48,10 @@ export RUST_LOG="route_guidance=Info,http_server=Info"
 # EMBEDDED
 #----------------------------------#
 export EMBEDDED_DISABLE_TIME_CONSUMING_TESTS=TRUE
-export USE_LOCAL_MQTT=TRUE
+
+# This is requied if I want to be running frontpub along side the mk2-test device
+# If I'm running it with Boatify. Then this should be OFF
+# export USE_LOCAL_MQTT=TRUE
 
 
 #----------------------------------#
@@ -71,6 +74,27 @@ export ENGINE_OIL_TEMPERATURE="298.6"
 export ENGINE_TORQUE=75
 export FUEL_RATE="10.5"
 export USED_THRESHOLD_RULES="UN9YJEnCggoY8klkeFRA"
+
+export SQL_USER_NAME="viktor"
+export SQL_HOST="127.0.0.1"
+export SQL_PORT="5432"
+
+export DB_USER="viktor"
+
+# This will assign the passwords saved by `pass` https://wiki.archlinux.org/title/Pass 
+# to the environmental variables. This will require me to write the password into a prompt 
+# which will pop up.
+function export-passwords
+    export SQL_USER_PASSWORD=$(pass show PostgreSQL/viktor)
+    export DB_PASSWORD=$(pass show PostgreSQL/viktor)
+    export REMMINA_PASSWORD=$(pass show remmina/192.168.68.111)
+
+    echo "Passwords exported"
+    echo " - SQL_USER_PASSWORD"
+    echo " - DB_PASSWORD"
+    echo " - REMMINA_PASSWORD"
+end
+
 
 
             # ENGINE_FUEL_PRESSURE: '20000'
